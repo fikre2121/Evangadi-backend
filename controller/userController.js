@@ -48,9 +48,9 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
-  const { email, password } = req.body;
+  const { email, password } = req.body || {};
   if (!email || !password) {
-    res
+     return res
       .status(StatusCodes.BAD_REQUEST)
       .json({ msg: "please inter all the required filds" });
   }

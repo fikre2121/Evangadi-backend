@@ -4,9 +4,10 @@ const port = 4000;
 // db connection
 
 const dbconnection = require("./db/dbconfigl");
-// user routs middleware file
+//  routs middleware fils
 const userRoutes = require("./routs/userRouter");
-
+const questionRoutes = require("./routs/questionRoutes");
+const answerRoutes = require("./routs/answerRouts");
 // json middleware to extract json data
 
 app.use(express.json());
@@ -16,7 +17,12 @@ app.use("/api/users", userRoutes);
 
 // qostion routes middleware??
 
+app.use("/api/questions",questionRoutes);
+
 // answer routes middleware??
+
+app.use("/api/answers",answerRoutes);
+
 
 async function start() {
   try {
@@ -34,7 +40,4 @@ async function start() {
 }
 start();
 
-// app.get("/", (req, res) => {
-//   res.json({ name: "fikre kindeya", status: "success" });
-//   console.log("this is listenign");
-// });
+
