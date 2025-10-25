@@ -81,7 +81,7 @@ async function login(req, res) {
 
     return res
       .status(StatusCodes.OK)
-      .json({ msg: "user created succesfully", token });
+      .json({ msg: "user created succesfully", token,username });
 
 
   } catch (error) {

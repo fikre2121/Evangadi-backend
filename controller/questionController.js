@@ -35,7 +35,7 @@ async function postquostion(req, res) {
  async function getAllquestions(req,res){
 try {
   const [rows] = await dbconnection.query(
-    `SELECT q.title, u.username
+    `SELECT q.title, u.username,description,questionid,id
        FROM questions q
        JOIN users u ON q.userid = u.userid
        ORDER BY q.questionid DESC`

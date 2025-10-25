@@ -29,11 +29,18 @@ async function getAnswer(req, res) {
 
   try {
     const [rows] = await dbconnection.query(
-      `SELECT a.answer, u.username
-   FROM answers a
-   JOIN users u ON a.userid = u.userid
-   WHERE a.questionid = ?
-   ORDER BY a.answerid DESC`,
+      `
+      SELECT 
+        q.title,
+        q.description,
+        a.answer,
+        u.username
+      FROM questions q
+      LEFT JOIN answers a ON q.questionid = a.questionid
+      LEFT JOIN users u ON a.userid = u.userid
+      WHERE q.questionid = ?
+      ORDER BY a.answerid DESC
+      `,
       [questionid]
     );
 
