@@ -38,7 +38,7 @@ try {
     `SELECT q.title, u.username,description,questionid,id
        FROM questions q
        JOIN users u ON q.userid = u.userid
-       ORDER BY q.questionid DESC`
+       ORDER BY q.id DESC`
   );
 
    return res.json(rows);
