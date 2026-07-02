@@ -8,7 +8,7 @@ async function authMiddleware(req, res, next) {
       .status(StatusCodes.UNAUTHORIZED)
       .json({ msg: "authenthication invalide" });
   }
-
+// addede comment
   const token = authHeader.split(" ")[1];
   // console.log(token);
   // console.log(authHeader);
